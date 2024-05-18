@@ -3,11 +3,10 @@ package player;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
 public class Player {
 
-    @Getter
     private String name;
-    @Getter
     private int maxHealthPoints;
     @Setter
     private int points;
@@ -63,10 +62,6 @@ public class Player {
                                         
                     ------------------------------------------------
                     """;
-    }
-
-    public int getPoints() {
-        return points;
     }
 
 }

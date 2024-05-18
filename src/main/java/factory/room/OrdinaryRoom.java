@@ -11,10 +11,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OrdinaryRoom implements Room {
-    private List<Person> people = new ArrayList<>();
-    private Scanner scanner = new Scanner(System.in);
+    private final List<Person> people = new ArrayList<>();
+
     public OrdinaryRoom() {
         System.out.println("How many people are in the room?:");
+        Scanner scanner = new Scanner(System.in);
         int totalPeople = scanner.nextInt();
         scanner.nextLine();
         System.out.println("How many Villagers are in the room?:");
