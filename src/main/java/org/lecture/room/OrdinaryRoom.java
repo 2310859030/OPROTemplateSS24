@@ -1,18 +1,27 @@
-package factory.room;
+package org.lecture.room;
 
-import Inheritance.npc.Farmer;
-import Inheritance.npc.Person;
-import Inheritance.npc.Villager;
+import org.lecture.npc.Farmer;
+import org.lecture.npc.Person;
+import org.lecture.npc.Villager;
 import org.lecture.ColorHelper;
-import player.Player;
-
+import org.lecture.player.Player;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * handles the logic of the Ordinary room
+ * the player encounters a number of people in the room and has to define the numbers ob villagers
+ */
 public class OrdinaryRoom implements Room {
+    private Room nextRoom;
     private final List<Person> people = new ArrayList<>();
 
+    /**
+     * constructs an ordinary room instance
+     * force the user to specify the number of people and villagers in the room
+     * throws an IllegalArgumentException if the number of villagers exceeds the number of people
+     */
     public OrdinaryRoom() {
         System.out.println("How many people are in the room?:");
         Scanner scanner = new Scanner(System.in);
@@ -36,6 +45,13 @@ public class OrdinaryRoom implements Room {
 
     }
 
+    /**
+     * handles the logic when the player enters the room
+     * each person speaks to the player
+     * @param player who has entered the room
+     * @return s always true as the player successfully completes the room
+     */
+
     @Override
     public boolean surviveRoom(Player player) {
         System.out.println(ColorHelper.ORDINARYROOM + "Welcome to the Ordinary Room" + ColorHelper.RESET);
@@ -43,5 +59,14 @@ public class OrdinaryRoom implements Room {
             person.speak();
         }
         return true;
+    }
+    @Override
+    public void setNextRoom(Room nextRoom) {
+        this.nextRoom = nextRoom;
+    }
+
+    @Override
+    public Room getNextRoom() {
+        return nextRoom;
     }
 }

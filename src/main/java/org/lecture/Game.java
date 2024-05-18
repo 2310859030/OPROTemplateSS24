@@ -1,14 +1,23 @@
 package org.lecture;
 
-import factory.room.Room;
-import factory.room.RoomFactory;
-import player.FileReaderPlayer;
-import player.Player;
-
+import org.lecture.room.Room;
+import org.lecture.room.RoomFactory;
+import org.lecture.player.FileReaderPlayer;
+import org.lecture.player.Player;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Main class to run the game.
+ * this class initializes the game, loads the player, creates rooms, and manages the player's journey through the rooms.
+ */
 public class Game {
+
+    /**
+     * the main method to start the game
+     * prompts the user to enter the total number of rooms, loads the player from a CSV file,
+     * creates the rooms, and manages the player's journey through the rooms
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a total number of rooms - min. 5: ");

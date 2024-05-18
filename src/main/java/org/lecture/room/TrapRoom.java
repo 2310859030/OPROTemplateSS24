@@ -1,12 +1,23 @@
-package factory.room;
+package org.lecture.room;
 
 import org.lecture.ColorHelper;
-import player.Player;
-
+import org.lecture.player.Player;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * represents the trap room in the game.
+ * in this room, the player must solve a puzzle to avoid taking damage from a trap.
+ */
 public class TrapRoom implements Room {
+    private Room nextRoom;
+
+    /**
+     * handles the logic when a player enters the trap room
+     * the player must solve a puzzle to avoid taking damage. If the puzzle is solved incorrectly, the player loses health points.
+     * @param player who has entered the trap room
+     * @return true if the player survives the room, false if the player loses all health points.
+     */
     @Override
     public boolean surviveRoom(Player player) {
         Random random = new Random();
@@ -31,5 +42,14 @@ public class TrapRoom implements Room {
             }
         }
         return true;
+    }
+    @Override
+    public void setNextRoom(Room nextRoom) {
+        this.nextRoom = nextRoom;
+    }
+
+    @Override
+    public Room getNextRoom() {
+        return nextRoom;
     }
 }

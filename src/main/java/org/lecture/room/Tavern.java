@@ -1,11 +1,22 @@
-package factory.room;
+package org.lecture.room;
 
 import org.lecture.ColorHelper;
-import player.Player;
-
+import org.lecture.player.Player;
 import java.util.Random;
 
+/**
+ * represents the tavern room in the game.
+ * in this room, the player must participate in a dice game against an opponent.
+ */
 public class Tavern implements Room {
+    private Room nextRoom;
+
+    /**
+     * handles the logic when a player enters the tavern room.
+     * the player participates in a dice game and may lose health points if they lose the game.
+     * @param player who has entered the tavern room.
+     * @return true if the player survives the room, false if the player loses all health points.
+     */
     @Override
     public boolean surviveRoom(Player player) {
         Random random = new Random();
@@ -29,5 +40,14 @@ public class Tavern implements Room {
             System.out.println(ColorHelper.TAVERN + "You win!" + ColorHelper.RESET);
         }
         return true;
+    }
+    @Override
+    public void setNextRoom(Room nextRoom) {
+        this.nextRoom = nextRoom;
+    }
+
+    @Override
+    public Room getNextRoom() {
+        return nextRoom;
     }
 }
