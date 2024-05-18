@@ -17,5 +17,6 @@ public interface Room {
    boolean surviveRoom(Player player);
 
    void setNextRoom(Room nextRoom);
+
    Room getNextRoom();
 }
