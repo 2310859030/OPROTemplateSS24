@@ -41,8 +41,8 @@ public class RoomFactory {
     }
     /**
      * creates a random room.
-     * the type of room created depends on a random number.
-     * @return s a randomly selected room.
+     * the type of room created depends on a random number
+     * @return s a randomly selected room
      */
 
     private Room createRandomRoom() {
