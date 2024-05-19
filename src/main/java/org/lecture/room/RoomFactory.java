@@ -24,7 +24,7 @@ public class RoomFactory {
 
         List<Room> rooms = new ArrayList<>();
         Room previousRoom = new StartRoom();
-        rooms.add(new StartRoom());
+        rooms.add(previousRoom);
 
         for (int i = 1; i < totalRooms -1; i++) {
             Room currentRoom = createRandomRoom();
